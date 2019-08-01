@@ -3,7 +3,6 @@ import { get } from 'axios'
 import _ from 'lodash'
 
 import md5 from 'md5'
-import Mitm from 'mitm'
 
 import fixtures from './__tests__/fixtures.json'
 import { sourceNodes } from './source-nodes'
@@ -11,6 +10,8 @@ import { sourceNodes } from './source-nodes'
 jest.mock('axios', () => ({
   get: jest.fn(),
 }))
+
+console.warn = jest.fn()
 
 describe('Source nodes.', () => {
   let nodes: any[] = []
@@ -22,19 +23,9 @@ describe('Source nodes.', () => {
         return node
       }),
     },
-    createContentDigest: jest.fn(node => md5(node.name)),
-    createNodeId: jest.fn(node => md5(node.name)),
+    createContentDigest: jest.fn(node => md5(node)),
+    createNodeId: jest.fn(node => md5(node)),
   }
-
-  beforeAll(() => {
-    Mitm().on('request', req => {
-      const host = _.get(req, 'headers.host')
-      const url = _.get(req, 'url')
-      throw new Error(
-        `Network requests forbidden in offline mode. Tried to call URL "${host}${url}"`,
-      )
-    })
-  })
 
   afterEach(() => {
     jest.clearAllMocks()
@@ -62,11 +53,12 @@ describe('Source nodes.', () => {
   })
 
   test('Verify sourceNodes fails gracefully when DH response is empty.', async () => {
-    get.mockImplementation()
+    get.mockImplementation(() => [])
 
     await sourceNodes(sourceNodeArgs, {
       username: 'fake_docker_user',
     })
     expect(nodes).toHaveLength(0)
+    expect(console.warn).toHaveBeenCalledTimes(1)
   })
 })

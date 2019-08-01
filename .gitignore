@@ -1,8 +1,9 @@
 # vim set ft=gitignore
-.cache/
+!*.config.js
 **/*.d.ts
 **/*.map
 *.tgz
+.cache/
 /*.js
 /__tests__/*.js
 /__tests__/*.json
@@ -12,5 +13,3 @@
 /types/
 report*
 tags*
-!index.d.ts
-!*.config.js

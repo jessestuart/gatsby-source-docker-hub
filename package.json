@@ -4,6 +4,7 @@
   "version": "1.1.1",
   "author": "Jesse Stuart <hi@jessestuart.com>",
   "dependencies": {
+    "@babel/runtime": "7.5.5",
     "axios": "0.19.0",
     "lodash": "4.17.15"
   },
@@ -48,7 +49,7 @@
     "index.d.ts",
     "index.js",
     "source-nodes.js",
-    "types/*.d.ts"
+    "types/*"
   ],
   "homepage": "https://github.com/jessestuart/gatsby-source-docker-hub#readme",
   "keywords": [

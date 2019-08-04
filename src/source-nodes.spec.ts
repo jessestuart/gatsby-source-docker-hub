@@ -37,7 +37,7 @@ describe('Source nodes.', () => {
     await sourceNodes(sourceNodeArgs, {
       username: 'fake_docker_user',
     })
-    expect(get).toHaveBeenCalledTimes(1)
+    expect(get).toHaveBeenCalledTimes(51)
     expect(nodes).toHaveLength(25)
   })
 

@@ -14,6 +14,7 @@ module.exports = {
     node: true,
   },
   rules: {
+    'no-console': ['warn'],
     'prettier/prettier': [
       'error',
       {

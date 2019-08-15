@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/jessestuart/gatsby-source-docker-hub">
-    <img src="https://github.com/jessestuart/gatsby-source-docker-hub/blob/master/assets/logo.png" width="50%" />
+    <img src="https://github.com/jessestuart/gatsby-source-docker-hub/blob/master/assets/logo.png?raw=true" width="50%" />
   </a>
 </p>
 <h1 align="center">

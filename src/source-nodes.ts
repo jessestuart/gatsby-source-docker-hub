@@ -5,7 +5,6 @@ import _ from 'lodash'
 import fp from 'lodash/fp'
 
 import DockerHubAPIRepo from 'types/DockerHubAPIRepo'
-import DockerHubRepo from 'types/DockerHubRepo'
 
 export const DockerHubNodeType = 'DockerHubRepo'
 
@@ -67,8 +66,7 @@ export const sourceNodes = async ({ actions, createNodeId }, { username }) => {
   }
 
   const createNodeFromRepo = async (repo: DockerHubAPIRepo) => {
-    // @ts-ignore
-    const repoDetails: DockerHubRepo = _.flow(
+    const repoDetails = _.flow(
       fp.pick([
         'description',
         'last_updated',

@@ -1,6 +1,7 @@
-// @ts-ignore
-import { get } from 'axios'
 import _ from 'lodash'
+
+// eslint-disable-next-line
+const { get } = require('axios')
 
 import md5 from 'md5'
 

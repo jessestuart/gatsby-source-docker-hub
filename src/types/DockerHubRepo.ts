@@ -1,5 +1,8 @@
+export type Architecture = 'amd64' | 'arm64' | 'arm'
+
 export default interface DockerHubRepo {
-  description: string
+  architectures?: Architecture[]
+  description?: string
   lastUpdated: Date
   name: string
   pullCount: number

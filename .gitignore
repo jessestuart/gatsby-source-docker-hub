@@ -11,5 +11,6 @@
 /dist/
 /node_modules/
 /types/
+/services/
 report*
 tags*

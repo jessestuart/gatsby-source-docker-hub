@@ -48,6 +48,7 @@
     "gatsby-node.js",
     "index.d.ts",
     "index.js",
+    "services/*",
     "source-nodes.js",
     "types/*"
   ],
@@ -79,5 +80,5 @@
     "update": "ncu -ua && yarn -s",
     "watch": "yarn build -w"
   },
-  "types": "./types/index.d.ts"
+  "types": "index.d.ts"
 }

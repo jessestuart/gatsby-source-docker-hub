@@ -3,12 +3,14 @@ import { createContentDigest } from 'gatsby/utils'
 import _ from 'lodash'
 
 import {
-  DockerHubNodeType,
-  fetchDockerHubAPIRepos,
+  DockerHubRepo,
   fetchManifestList,
-  transformDockerHubAPIRepo,
-} from './services/DockerHub'
-import DockerHubAPIRepo from './types/DockerHubAPIRepo'
+  queryTopRepos,
+} from 'docker-hub-utils'
+
+export const DockerHubNodeType = 'DockerHubRepo'
+
+export type DockerHubRepoNode = DockerHubRepo & NodeInput
 
 /**
  *
@@ -16,27 +18,27 @@ import DockerHubAPIRepo from './types/DockerHubAPIRepo'
 export const sourceNodes = async ({ actions, createNodeId }, { username }) => {
   const { createNode } = actions
 
-  const response = await fetchDockerHubAPIRepos({ username })
-
-  const repos: DockerHubAPIRepo[] | undefined = _.get(response, 'data.results')
+  const repos: DockerHubRepo[] | undefined = await queryTopRepos(username)
   if (!repos || _.isEmpty(repos)) {
     console.warn(`No Docker Hub repos found for user @${username}.`)
     return []
   }
 
-  const createNodeFromRepo = async (repo: DockerHubAPIRepo) => {
-    const repoDetails = transformDockerHubAPIRepo(repo)
-    const architectures = await fetchManifestList({ repo: repo.name, username })
-    const node: NodeInput = Object.assign(repoDetails, {
-      architectures,
-      id: createNodeId(repoDetails.name),
+  const createNodeFromRepo = async (
+    repo: DockerHubRepo,
+  ): Promise<DockerHubRepoNode> => {
+    const manifestList = await fetchManifestList(repo)
+    const node: DockerHubRepoNode = Object.assign(repo, {
+      id: createNodeId(repo.name),
       internal: {
-        contentDigest: createContentDigest(repoDetails.name),
+        contentDigest: createContentDigest(repo.name),
         type: DockerHubNodeType,
       },
+      manifestList,
     })
-    return createNode(node)
+    await createNode(node)
+    return node
   }
 
-  return Promise.all(repos.map(createNodeFromRepo))
+  return await Promise.all(repos.map(createNodeFromRepo))
 }

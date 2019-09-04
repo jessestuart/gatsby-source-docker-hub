@@ -15,6 +15,8 @@ module.exports = {
   },
   rules: {
     'no-console': ['warn'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'object-curly-spacing': ['error', 'always'],
     'prettier/prettier': [
       'error',
       {
@@ -30,9 +32,8 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/member-delimiter-style': ['off'],
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-explicit-any': ['off'],
-    'comma-dangle': ['error', 'always-multiline'],
-    'object-curly-spacing': ['error', 'always'],
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-var-requires': ['off'],
   },
 }

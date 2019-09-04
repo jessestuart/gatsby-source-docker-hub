@@ -1,28 +1,35 @@
 import _ from 'lodash'
-
-// eslint-disable-next-line
-const { get } = require('axios')
-
 import md5 from 'md5'
 
 import fixtures from './__tests__/fixtures.json'
-import { sourceNodes } from './source-nodes'
+import manifestFixtures from './__tests__/manifest_fixtures.json'
+import { DockerHubRepoNode, sourceNodes } from './source-nodes'
+
+// tslint:disable
+const { get } = require('axios')
 
 jest.mock('axios', () => ({
-  get: jest.fn(),
+  get: jest.fn().mockImplementation((url: string) => {
+    if (_.includes(url, 'auth.docker.io/token')) {
+      return { data: { token: 'FAKE/TOKEN' } }
+    }
+    if (_.includes(url, '/manifests/')) {
+      return manifestFixtures
+    }
+    if (_.includes(url, '/repositories/')) {
+      return fixtures
+    }
+    return null
+  }),
 }))
 
+// eslint-disable-next-line
 console.warn = jest.fn()
 
 describe('Source nodes.', () => {
-  let nodes: any[] = []
-
   const sourceNodeArgs = {
     actions: {
-      createNode: jest.fn(node => {
-        nodes.push(node)
-        return node
-      }),
+      createNode: jest.fn(),
     },
     createContentDigest: jest.fn(node => md5(node)),
     createNodeId: jest.fn(node => md5(node)),
@@ -30,12 +37,10 @@ describe('Source nodes.', () => {
 
   afterEach(() => {
     jest.clearAllMocks()
-    nodes = []
   })
 
   test('Verify sourceNodes creates the correct # of nodes, given our fixtures.', async () => {
-    get.mockImplementation(() => fixtures)
-    await sourceNodes(sourceNodeArgs, {
+    const nodes: DockerHubRepoNode[] = await sourceNodes(sourceNodeArgs, {
       username: 'fake_docker_user',
     })
     expect(get).toHaveBeenCalledTimes(51)
@@ -43,23 +48,34 @@ describe('Source nodes.', () => {
   })
 
   test('Verify sourceNodes generates valid data.', async () => {
-    get.mockImplementation(() => fixtures)
-    await sourceNodes(sourceNodeArgs, {
+    const nodes = await sourceNodes(sourceNodeArgs, {
       username: 'fake_docker_user',
     })
+
+    expect(nodes).toHaveLength(25)
     // All nodes have names.
     expect(_.every(_.map(nodes, 'name')))
-    // All nodes have pull_count.
-    expect(_.every(_.map(nodes, 'pull_count')))
+
+    const topNode = _.last(_.sortBy(nodes, 'pullCount'))
+    if (!topNode) {
+      fail('topNode is undefined.')
+      return
+    }
+    expect(topNode.name).toBe('owntracks')
+
+    const manifestList: any = topNode.manifestList
+    const architectures = _.map(manifestList.manifests, 'platform.architecture')
+    expect(new Set(architectures)).toEqual(new Set(['arm', 'amd64', 'arm64']))
   })
 
   test('Verify sourceNodes fails gracefully when DH response is empty.', async () => {
-    get.mockImplementation(() => [])
+    get.mockResolvedValueOnce([])
 
-    await sourceNodes(sourceNodeArgs, {
+    const nodes = await sourceNodes(sourceNodeArgs, {
       username: 'fake_docker_user',
     })
     expect(nodes).toHaveLength(0)
+    // eslint-disable-next-line
     expect(console.warn).toHaveBeenCalledTimes(1)
   })
 })

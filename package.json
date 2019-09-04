@@ -80,6 +80,5 @@
     "ts:defs": "tsc --declaration --emitDeclarationOnly",
     "update": "ncu -ua && yarn -s",
     "watch": "yarn build -w"
-  },
-  "types": "index.d.ts"
+  }
 }

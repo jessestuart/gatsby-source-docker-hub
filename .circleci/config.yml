@@ -92,9 +92,6 @@ jobs:
       - run:
           name: Transpile sources.
           command: yarn build
-      - run:
-          name: Compile type definitions.
-          command: yarn ts:defs
 
   release:
     <<: *docker_image

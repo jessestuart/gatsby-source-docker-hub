@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import fp from 'lodash/fp'
 import md5 from 'md5'
 
 import fixtures from './__tests__/fixtures.json'
@@ -63,8 +64,15 @@ describe('Source nodes.', () => {
     }
     expect(topNode.name).toBe('owntracks')
 
-    const manifestList: any = topNode.manifestList
-    const architectures = _.map(manifestList.manifests, 'platform.architecture')
+    const architectures = _.flow(
+      fp.get('manifestList.manifests'),
+      fp.map('platform.architecture'),
+    )(topNode)
+    // const manifestList: DockerManifestList | undefined = topNode.manifestList
+    // const architectures = _.map(
+    //   _.get(manifestList, 'manifests'),
+    //   'platform.architecture',
+    // )
     expect(new Set(architectures)).toEqual(new Set(['arm', 'amd64', 'arm64']))
   })
 

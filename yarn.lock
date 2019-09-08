@@ -4911,13 +4911,14 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
-docker-hub-utils@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/docker-hub-utils/-/docker-hub-utils-1.5.0.tgz#8b0c247d171133dc1b353fd5dd96f3ed05739666"
-  integrity sha512-cdEegawLgS5FWkRtTNu329icR3YAzCQ16+OK+vGmqERg1cR4KN1l0LxzxW1OnUFWFylcDzT5/D3+N8PBWxJVrw==
+docker-hub-utils@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/docker-hub-utils/-/docker-hub-utils-1.7.0.tgz#2ce9eb74c61e7d378a196092d961e969f94ab207"
+  integrity sha512-BOUfz6YxMWjbs9ZKYcVkJbc+aK/TV6Mq36ixRkhAID44j9F7RIcZs2+HCOUsIUWN0qfhHwzF5w+C1NmlEpPHVA==
   dependencies:
     axios "0.19.0"
     camelcase-keys "6.0.1"
+    luxon "1.17.2"
     pino "5.13.2"
     ramda "0.26.1"
 
@@ -5385,6 +5386,11 @@ eslint-plugin-prettier@3.1.0:
   integrity sha512-XWX2yVuwVNLOUhQijAkXz+rMPPoCr7WFiAl8ig6I7Xn+pPVhDhzg4DxHpmbeb0iqjO9UronEA3Tb09ChnFVHHA==
   dependencies:
     prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-promise@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-4.2.1.tgz#845fd8b2260ad8f82564c1222fce44ad71d9418a"
+  integrity sha512-VoM09vT7bfA7D+upt+FjeBO5eHIJQBUWki1aPvB+vbNiHS3+oGIJGIeyBtKQTME6UPXXy3vV07OL1tHd3ANuDw==
 
 eslint-plugin-react-hooks@^1.7.0:
   version "1.7.0"
@@ -9138,6 +9144,11 @@ ltcdr@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ltcdr/-/ltcdr-2.2.1.tgz#5ab87ad1d4c1dab8e8c08bbf037ee0c1902287cf"
   integrity sha1-Wrh60dTB2rjowIu/A37gwZAih88=
+
+luxon@1.17.2:
+  version "1.17.2"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.17.2.tgz#95189c450341cfddf5f826ef8c32b5b022943fd5"
+  integrity sha512-qELKtIj3HD41N+MvgoxArk8DZGUb4Gpiijs91oi+ZmKJzRlxY6CoyTwNoUwnogCVs4p8HuxVJDik9JbnYgrCng==
 
 macos-release@^2.2.0:
   version "2.3.0"

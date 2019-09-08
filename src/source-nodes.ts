@@ -28,15 +28,16 @@ export const sourceNodes = async ({ actions, createNodeId }, { username }) => {
     repo: DockerHubRepo,
   ): Promise<DockerHubRepoNode> => {
     const manifestList = await fetchManifestList(repo)
-    const node: DockerHubRepoNode = Object.assign(repo, {
+    const node: DockerHubRepoNode = {
+      ...repo,
       id: createNodeId(repo.name),
       internal: {
         contentDigest: createContentDigest(repo.name),
         type: DockerHubNodeType,
       },
       manifestList,
-    })
-    await createNode(node)
+    }
+    createNode(node)
     return node
   }
 

@@ -6,7 +6,7 @@
   "dependencies": {
     "@babel/runtime": "7.6.0",
     "axios": "0.19.0",
-    "docker-hub-utils": "1.5.0",
+    "docker-hub-utils": "1.7.0",
     "lodash": "4.17.15"
   },
   "devDependencies": {
@@ -33,6 +33,7 @@
     "eslint-config-prettier": "6.2.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-promise": "4.2.1",
     "gatsby": "2.15.9",
     "jest": "24.9.0",
     "jest-junit": "8.0.0",
@@ -54,13 +55,7 @@
     "types/*"
   ],
   "homepage": "https://github.com/jessestuart/gatsby-source-docker-hub#readme",
-  "keywords": [
-    "gatsby",
-    "gatsby-plugin",
-    "gatsbyjs",
-    "docker",
-    "docker-hub"
-  ],
+  "keywords": ["gatsby", "gatsby-plugin", "gatsbyjs", "docker", "docker-hub"],
   "license": "MIT",
   "peerDependencies": {
     "gatsby": "^2"

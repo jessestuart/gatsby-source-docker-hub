@@ -4809,10 +4809,10 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
-docker-hub-utils@1.9.6:
-  version "1.9.6"
-  resolved "https://registry.yarnpkg.com/docker-hub-utils/-/docker-hub-utils-1.9.6.tgz#62c27e6be4cf9496c41f3b634c12a32275e40c94"
-  integrity sha512-vs7VNxtvEqQ7MnEtdvD/wXwpZl8/Ha58u5LZQifilj9uFFf2UZrK7p+YuzZZcUTJT3rp5uC/CPTn5aVnRqUVYQ==
+docker-hub-utils@1.9.7:
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/docker-hub-utils/-/docker-hub-utils-1.9.7.tgz#5ef4c2eaf269802d4f62e9f1a2970055f44174fe"
+  integrity sha512-Rk4rmy7eWyzpk8GOVIONicQotzr6i7oLM4ZUPQqVs2gYRkXNSOoDh9Wm1O+m966kfzz9+HqIOfAUD720tQ6lXA==
   dependencies:
     axios "0.19.0"
     camelcase-keys "6.0.1"

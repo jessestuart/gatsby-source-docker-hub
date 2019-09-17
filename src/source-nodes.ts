@@ -4,8 +4,11 @@ import _ from 'lodash'
 
 import {
   DockerHubRepo,
+  DockerManifestList,
   fetchManifestList,
+  queryTags,
   queryTopRepos,
+  Tag,
 } from 'docker-hub-utils'
 
 export const DockerHubNodeType = 'DockerHubRepo'
@@ -18,7 +21,7 @@ export type DockerHubRepoNode = DockerHubRepo & NodeInput
 export const sourceNodes = async ({ actions, createNodeId }, { username }) => {
   const { createNode } = actions
 
-  const repos: DockerHubRepo[] | undefined = await queryTopRepos(username)
+  const repos = await queryTopRepos({ user: username })
   if (!repos || _.isEmpty(repos)) {
     console.warn(`No Docker Hub repos found for user @${username}.`)
     return []
@@ -27,7 +30,16 @@ export const sourceNodes = async ({ actions, createNodeId }, { username }) => {
   const createNodeFromRepo = async (
     repo: DockerHubRepo,
   ): Promise<DockerHubRepoNode> => {
-    const manifestList = await fetchManifestList(repo)
+    let manifestList: DockerManifestList | undefined
+    try {
+      manifestList = await fetchManifestList(repo)
+    } catch (__) {}
+
+    let tags: Tag[] | undefined
+    try {
+      tags = await queryTags(repo)
+    } catch (__) {}
+
     const node: DockerHubRepoNode = {
       ...repo,
       id: createNodeId(repo.name),
@@ -36,8 +48,11 @@ export const sourceNodes = async ({ actions, createNodeId }, { username }) => {
         type: DockerHubNodeType,
       },
       manifestList,
+      tags,
     }
+
     createNode(node)
+
     return node
   }
 

@@ -4,9 +4,9 @@ import md5 from 'md5'
 
 import fixtures from './__tests__/fixtures.json'
 import manifestFixtures from './__tests__/manifest_fixtures.json'
+import tagFixtures from './__tests__/tag_fixtures.json'
 import { DockerHubRepoNode, sourceNodes } from './source-nodes'
 
-// tslint:disable
 const { get } = require('axios')
 
 jest.mock('axios', () => ({
@@ -16,6 +16,9 @@ jest.mock('axios', () => ({
     }
     if (_.includes(url, '/manifests/')) {
       return manifestFixtures
+    }
+    if (_.includes(url, '/tags')) {
+      return tagFixtures
     }
     if (_.includes(url, '/repositories/')) {
       return fixtures
@@ -44,7 +47,6 @@ describe('Source nodes.', () => {
     const nodes: DockerHubRepoNode[] = await sourceNodes(sourceNodeArgs, {
       username: 'fake_docker_user',
     })
-    expect(get).toHaveBeenCalledTimes(51)
     expect(nodes).toHaveLength(25)
   })
 

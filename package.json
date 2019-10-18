@@ -6,7 +6,7 @@
   "dependencies": {
     "@babel/runtime": "7.6.3",
     "axios": "0.19.0",
-    "docker-hub-utils": "1.10.9",
+    "docker-hub-utils": "1.10.10",
     "lodash": "4.17.15"
   },
   "devDependencies": {

@@ -16,7 +16,7 @@
     "@babel/plugin-transform-runtime": "7.6.2",
     "@babel/preset-env": "7.6.3",
     "@babel/preset-typescript": "7.6.0",
-    "@semantic-release/git": "7.0.16",
+    "@semantic-release/git": "7.0.17",
     "@types/jest": "24.0.20",
     "@types/lodash": "4.14.144",
     "@types/md5": "2.1.33",
@@ -40,7 +40,7 @@
     "md5": "2.2.1",
     "nodemon": "1.19.4",
     "prettier": "1.18.2",
-    "semantic-release": "15.13.27",
+    "semantic-release": "15.13.28",
     "ts-jest": "24.1.0",
     "typescript": "3.6.4"
   },

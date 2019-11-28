@@ -4761,14 +4761,14 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
-docker-hub-utils@1.10.17:
-  version "1.10.17"
-  resolved "https://registry.yarnpkg.com/docker-hub-utils/-/docker-hub-utils-1.10.17.tgz#969d6403d0a9cf2b243ef5ecff6da993dc52f1b4"
-  integrity sha512-fkJlIVzjW4U5cbbW37wcL7WbvigxtC/Y2qoO6bwHfgnUu7zSmiB2FSD/3ePyWpPZl9yzkmJ02I/rCp/JN1PHRw==
+docker-hub-utils@1.10.18:
+  version "1.10.18"
+  resolved "https://registry.yarnpkg.com/docker-hub-utils/-/docker-hub-utils-1.10.18.tgz#1679187bd015c4396faff8d505d945faff3b15bb"
+  integrity sha512-UO7zi18Bj4NjravellFTRoZNkYESInLw/+9x2Ip+nVz2siaLGV8W2pxKfFkgPDwtTUJfMTHz73gZ65sR0ETPzw==
   dependencies:
     axios "0.19.0"
     camelcase-keys "6.1.1"
-    luxon "1.21.2"
+    luxon "1.21.3"
     pino "5.14.0"
     ramda "0.26.1"
 
@@ -9032,10 +9032,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-luxon@1.21.2:
-  version "1.21.2"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.21.2.tgz#2df6d2bba855a12953e076e855604aa3482677a6"
-  integrity sha512-yshwnlkA79WfC24/BC9Rd1n0mhorP22Sc7GYn0puRU6wD/douCgNJIzI9qQBuT9m2/bU+n9v1RflVNE4rMPPxQ==
+luxon@1.21.3:
+  version "1.21.3"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.21.3.tgz#f1d5c2a7e855d039836cf4954f883ecac8fc4727"
+  integrity sha512-lLRwNcNnkZLuv13A1FUuZRZmTWF7ro2ricYvb0L9cvBYHPvZhQdKwrYnZzi103D2XKmlVmxWpdn2wfIiOt2YEw==
 
 macos-release@^2.2.0:
   version "2.3.0"

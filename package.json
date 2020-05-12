@@ -42,7 +42,7 @@
     "prettier": "1.19.1",
     "semantic-release": "15.14.0",
     "ts-jest": "24.3.0",
-    "typescript": "3.8.3"
+    "typescript": "3.9.2"
   },
   "files": [
     "gatsby-node.js",

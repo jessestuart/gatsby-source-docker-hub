@@ -37,7 +37,7 @@
     "gatsby": "2.20.16",
     "jest": "24.9.0",
     "jest-junit": "8.0.0",
-    "md5": "2.2.1",
+    "md5": "2.3.0",
     "nodemon": "1.19.4",
     "prettier": "1.19.1",
     "semantic-release": "15.14.0",

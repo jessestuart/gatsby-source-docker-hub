@@ -18,7 +18,7 @@
     "@babel/preset-typescript": "7.10.4",
     "@semantic-release/git": "7.0.18",
     "@types/jest": "24.9.1",
-    "@types/lodash": "4.14.159",
+    "@types/lodash": "4.14.160",
     "@types/md5": "2.2.0",
     "@types/node": "12.12.54",
     "@typescript-eslint/eslint-plugin": "canary",

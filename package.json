@@ -19,7 +19,7 @@
     "@semantic-release/git": "7.0.18",
     "@types/jest": "24.9.1",
     "@types/lodash": "4.14.162",
-    "@types/md5": "2.2.0",
+    "@types/md5": "2.2.1",
     "@types/node": "12.19.1",
     "@typescript-eslint/eslint-plugin": "canary",
     "@typescript-eslint/parser": "canary",

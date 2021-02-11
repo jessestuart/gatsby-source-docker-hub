@@ -10,12 +10,12 @@
     "lodash": "4.17.20"
   },
   "devDependencies": {
-    "@babel/cli": "7.12.13",
-    "@babel/core": "7.12.13",
+    "@babel/cli": "7.12.16",
+    "@babel/core": "7.12.16",
     "@babel/plugin-proposal-object-rest-spread": "7.12.13",
     "@babel/plugin-transform-runtime": "7.12.15",
-    "@babel/preset-env": "7.12.13",
-    "@babel/preset-typescript": "7.12.13",
+    "@babel/preset-env": "7.12.16",
+    "@babel/preset-typescript": "7.12.16",
     "@semantic-release/git": "7.0.18",
     "@types/jest": "24.9.1",
     "@types/lodash": "4.14.168",

@@ -4,14 +4,14 @@
   "version": "1.5.40",
   "author": "Jesse Stuart <hi@jessestuart.com>",
   "dependencies": {
-    "@babel/runtime": "7.13.10",
+    "@babel/runtime": "7.13.16",
     "axios": "0.19.0",
     "docker-hub-utils": "1.10.19",
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@babel/cli": "7.13.14",
-    "@babel/core": "7.13.15",
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.13.16",
     "@babel/plugin-proposal-object-rest-spread": "7.13.8",
     "@babel/plugin-transform-runtime": "7.13.15",
     "@babel/preset-env": "7.13.15",

@@ -20,7 +20,7 @@
     "@types/jest": "24.9.1",
     "@types/lodash": "4.14.168",
     "@types/md5": "2.3.0",
-    "@types/node": "12.20.10",
+    "@types/node": "12.20.11",
     "@typescript-eslint/eslint-plugin": "canary",
     "@typescript-eslint/parser": "canary",
     "babel-plugin-add-module-exports": "1.0.4",

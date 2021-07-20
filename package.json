@@ -4,17 +4,17 @@
   "version": "1.5.41",
   "author": "Jesse Stuart <hi@jessestuart.com>",
   "dependencies": {
-    "@babel/runtime": "7.14.6",
+    "@babel/runtime": "7.14.8",
     "axios": "0.19.0",
     "docker-hub-utils": "1.10.19",
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@babel/cli": "7.14.5",
-    "@babel/core": "7.14.6",
+    "@babel/cli": "7.14.8",
+    "@babel/core": "7.14.8",
     "@babel/plugin-proposal-object-rest-spread": "7.14.7",
     "@babel/plugin-transform-runtime": "7.14.5",
-    "@babel/preset-env": "7.14.7",
+    "@babel/preset-env": "7.14.8",
     "@babel/preset-typescript": "7.14.5",
     "@semantic-release/git": "7.0.18",
     "@types/jest": "24.9.1",

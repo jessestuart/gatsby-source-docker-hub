@@ -4,7 +4,7 @@
   "version": "1.5.41",
   "author": "Jesse Stuart <hi@jessestuart.com>",
   "dependencies": {
-    "@babel/runtime": "7.14.8",
+    "@babel/runtime": "7.15.3",
     "axios": "0.19.0",
     "docker-hub-utils": "1.10.19",
     "lodash": "4.17.21"

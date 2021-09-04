@@ -39,7 +39,7 @@
     "jest-junit": "8.0.0",
     "md5": "2.3.0",
     "nodemon": "1.19.4",
-    "prettier": "1.19.1",
+    "prettier": "2.3.2",
     "semantic-release": "15.14.0",
     "ts-jest": "24.3.0",
     "typescript": "3.9.10"
